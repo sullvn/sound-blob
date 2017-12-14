@@ -44,7 +44,7 @@ export default function startRender( ctx ) {
 
   // Render every animationFrame
   regl.frame(({ time }) => {
-    // Clear as transparent
+    // Clear with transparency
     regl.clear({
       color: [ 0, 0, 0, 0 ],
       depth: 1,

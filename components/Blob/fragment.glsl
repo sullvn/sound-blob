@@ -84,8 +84,7 @@ void main() {
   vec2 uv = v / r;
 
   // Ring offset
-  float o = offset( 0.6 * r, 2.0,  uv + vec2( 0., r * 1.5 ), time       ) +
-            offset( 0.1 * r, 10.0, uv,                       time / 3.0 );
+  float o = offset( 0.6 * r, 1.0, uv, 30. * time );
 
   // Noisey radius
   float nr = r + o;
