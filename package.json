@@ -1,6 +1,6 @@
 {
   "name": "sound-blob",
-  "version": "0.0.0",
+  "version": "1.0.0",
   "description": "A blobby visualization of sound.",
   "repository": "https://github.com/awfulaxolotl/sound-blob",
   "author": "Kevin Sullivan <kevin.sullivan@axolotl.industries>",
