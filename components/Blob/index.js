@@ -12,8 +12,6 @@ export default class Blob extends React.Component {
   render() {
     return (
       <canvas
-        width={ 800 }
-        height={ 800 }
         style={ canvasStyle }
         ref={ this.onRef }
       />
@@ -27,6 +25,6 @@ export default class Blob extends React.Component {
 
 
 const canvasStyle = {
-  height: '400px',
-  width: '400px',
+  height: '100vmin',
+  width: '100vmin',
 }

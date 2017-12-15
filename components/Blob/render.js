@@ -41,8 +41,15 @@ const uniforms = {
 }
 
 
-export default function startRender( ctx ) {
-  const regl = initRegl( ctx )
+const resizeCanvas = el => () => {
+  const { width, height } = el.getBoundingClientRect()
+  el.width = width * window.devicePixelRatio
+  el.height = height * window.devicePixelRatio
+}
+
+
+export default function startRender( el ) {
+  const regl = initRegl( el )
 
   const draw = regl({
     frag: fragmentShader,
@@ -51,6 +58,11 @@ export default function startRender( ctx ) {
     attributes,
     uniforms,
   })
+
+  const rc = resizeCanvas( el )
+
+  rc()
+  window.addEventListener( 'resize', rc )
 
   // Audio monitor
   const monitor = new Monitor({

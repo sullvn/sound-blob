@@ -29,7 +29,7 @@ float intensity( float db ) {
     return 0.;
   }
 
-  return pow((db + 120.) / 110., 2. );
+  return pow((db + 120.) / 110., 2.5 );
 } 
 
 
@@ -111,7 +111,7 @@ void main() {
   float o = 
     offset( 1.5 * intensity( low ) * r,   1.0, uv, 30. * time ) +
     offset( 0.5 * intensity( mid ) * r,   5.0, uv, 30. * time ) +
-    offset( 0.5 * intensity( high ) * r, 25.0, uv, 30. * time );
+    offset( 0.2 * intensity( high ) * r, 25.0, uv, 30. * time );
 
   // Noisey radius
   float nr = r + o;
