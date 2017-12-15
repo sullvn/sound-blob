@@ -5,8 +5,32 @@ precision mediump float;
 uniform vec2 resolution;
 uniform float time;
 
+// Audio frequency intensities (dB)
+uniform float low;
+uniform float mid;
+uniform float high;
+
 const vec3 black = vec3( 0.0 );
 const vec2 center = vec2( 0.5 );
+
+
+// Normalized frequency intensity
+//
+// Expected normal range:
+//
+//     -120dB -> -40dB
+//         maps to
+//          0 -> 1
+//
+// Anything louder than -40dB outputs greater than 1.
+//
+float intensity( float db ) {
+  if (db < -120.) {
+    return 0.;
+  }
+
+  return pow((db + 120.) / 110., 2. );
+} 
 
 
 // Random and noise
@@ -84,7 +108,10 @@ void main() {
   vec2 uv = v / r;
 
   // Ring offset
-  float o = offset( 0.6 * r, 1.0, uv, 30. * time );
+  float o = 
+    offset( 1.5 * intensity( low ) * r,   1.0, uv, 30. * time ) +
+    offset( 0.5 * intensity( mid ) * r,   5.0, uv, 30. * time ) +
+    offset( 0.5 * intensity( high ) * r, 25.0, uv, 30. * time );
 
   // Noisey radius
   float nr = r + o;
