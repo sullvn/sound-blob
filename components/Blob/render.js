@@ -30,13 +30,17 @@ const uniforms = {
   },
 
   low({}, { frequencies: freq }) {
-    return (freq[ 0 ] + freq[ 1 ] + freq[ 2 ] + freq[ 3 ] + freq[ 4 ]) / 5
+    return freq[ 0 ]
   },
   mid({}, { frequencies: freq }) {
-    return (freq[ 5 ] + freq[ 6 ] + freq[ 7 ] + freq[ 8 ] + freq[ 9 ] + freq[ 10 ]) / 6
+    return (freq[ 1 ] + freq[ 2 ] + freq[ 3 ]) / 3
   },
   high({}, { frequencies: freq }) {
-    return (freq[ 11 ] + freq[ 12 ] + freq[ 13 ] + freq[ 14 ] + freq[ 15 ]) / 5
+    return (
+      freq[ 4 ]  + freq[ 5 ]  + freq[ 6 ]  + freq[ 7 ]  + freq[ 8 ] +
+      freq[ 9 ]  + freq[ 10 ] + freq[ 11 ] + freq[ 12 ] + freq[ 13 ] +
+      freq[ 14 ] + freq[ 15 ]
+    ) / 12
   },
 }
 

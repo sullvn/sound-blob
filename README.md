@@ -1,6 +1,10 @@
+![](preview.png)
+
 # Sound Blob
 
 A sound-sensitive blob made in WebGL and WebAudio. Please treat it with respect, thanks.
+
+[Live example.](https://awfulaxolotl.github.io/sound-blob/)
 
 ## Develop
 
